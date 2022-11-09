@@ -6,19 +6,19 @@
 
         public Circle(double radius)
         {
+            _check(radius);
             Radius = radius;
         }
 
         /// <summary>
-        /// Вычислить площадь круга
+        /// Проверка на заполненность радиуса
         /// </summary>
-        public override double СalculateArea()
+        private static void _check(double radius)
         {
-            if (Radius == default(double))
+            if (radius == default(double))
             {
-                throw new ArgumentNullException("Радиус круга не задан");
+                throw new ArgumentNullException("Радиус не указан");
             }
-            return СalculateArea(Radius);
         }
 
         /// <summary>
@@ -26,7 +26,19 @@
         /// </summary>
         public static double СalculateArea(double radius)
         {
+            _check(radius);
             return Math.PI * radius * radius;
+        }
+
+
+
+        /// <summary>
+        /// Вычислить площадь круга
+        /// </summary>
+        public override double СalculateArea()
+        {
+            _check(Radius);
+            return СalculateArea(Radius);
         }
     }
 }

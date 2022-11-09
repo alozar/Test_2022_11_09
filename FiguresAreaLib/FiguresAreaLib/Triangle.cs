@@ -8,21 +8,21 @@
 
         public Triangle(double sideA, double sideB, double sideC)
         {
+            _check(sideA, sideB, sideC);
             SideA = sideA;
             SideB = sideB;
             SideC = sideC;
         }
-
+        
         /// <summary>
-        /// Вычислить площадь треугольника
+        /// Проверка на заполненность сторон
         /// </summary>
-        public override double СalculateArea()
+        private static void _check(double sideA, double sideB, double sideC)
         {
-            if (SideA == default(double) || SideB == default(double) || SideC == default(double))
+            if (sideA == default(double) || sideB == default(double) || sideC == default(double))
             {
                 throw new ArgumentNullException("Одна из сторон не задана");
             }
-            return СalculateArea(SideA, SideB, SideC);
         }
 
         /// <summary>
@@ -30,6 +30,7 @@
         /// </summary>
         public static double СalculateArea(double sideA, double sideB, double sideC)
         {
+            _check(sideA, sideB, sideC);
             var halfPerimeter = СalculatePerimeter(sideA, sideB, sideC) / 2;
             return Math.Sqrt(halfPerimeter * (halfPerimeter - sideA) * (halfPerimeter - sideB) * (halfPerimeter - sideC));
         }
@@ -39,7 +40,39 @@
         /// </summary>
         public static double СalculatePerimeter(double sideA, double sideB, double sideC)
         {
+            _check(sideA, sideB, sideC);
             return sideA + sideB + sideC;
+        }
+
+        /// <summary>
+        /// Является ли треугольник прямоугольным
+        /// </summary>
+        public static bool IsRight(double sideA, double sideB, double sideC)
+        {
+            _check(sideA, sideB, sideC);
+            return sideA * sideA == sideB * sideB + sideC * sideC
+                || sideB * sideB == sideA * sideA + sideC * sideC
+                || sideC * sideC == sideA * sideA + sideB * sideB;
+        }
+
+
+
+        /// <summary>
+        /// Вычислить площадь треугольника
+        /// </summary>
+        public override double СalculateArea()
+        {
+            _check(SideA, SideB, SideC);
+            return СalculateArea(SideA, SideB, SideC);
+        }
+
+        /// <summary>
+        /// Является ли треугольник прямоугольным
+        /// </summary>
+        public bool IsRight()
+        {
+            _check(SideA, SideB, SideC);
+            return IsRight(SideA, SideB, SideC);
         }
     }
 }

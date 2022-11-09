@@ -10,7 +10,7 @@ namespace FiguresAreaLibTests
         }
 
         [Fact]
-        public void Calc_circle_trueArea()
+        public void CircleCalcArea_True()
         {
             var circle = new Circle(20);
             var trueArea = Circle.ÑalculateArea(20);
@@ -20,19 +20,25 @@ namespace FiguresAreaLibTests
         }
 
         [Fact]
-        public void Calc_triangle_trueArea()
+        public void TriangleCalcArea_True()
         {
             var triangle1 = new Triangle(8, 9, 10);
             var trueArea1 = Triangle.ÑalculateArea(8, 9, 10);
             var calcArea1 = _calculator.Calc(triangle1);
 
             Assert.Equal(trueArea1, calcArea1);
+        }
+
+        [Fact]
+        public void TriangleIsRight_True()
+        {
+            var triangle1 = new Triangle(8, 9, 10);
+            Assert.False(triangle1.IsRight());
+            Assert.False(Triangle.IsRight(8, 9, 10));
 
             var triangle2 = new Triangle(3, 4, 5);
-            var trueArea2 = Triangle.ÑalculateArea(3, 4, 5);
-            var calcArea2 = _calculator.Calc(triangle2);
-
-            Assert.Equal(trueArea2, calcArea2);
+            Assert.True(triangle2.IsRight());
+            Assert.True(Triangle.IsRight(3, 4, 5));
         }
     }
 }
