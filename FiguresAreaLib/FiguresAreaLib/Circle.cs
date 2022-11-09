@@ -10,11 +10,6 @@
         }
 
         /// <summary>
-        /// Функция вычисления площади круга
-        /// </summary>
-        public static readonly Func<double, double> СalculateAreaFunc = (radius) => Math.PI * radius * radius;
-
-        /// <summary>
         /// Вычислить площадь круга
         /// </summary>
         public override double СalculateArea()
@@ -23,7 +18,7 @@
             {
                 throw new ArgumentNullException("Радиус круга не задан");
             }
-            return СalculateAreaFunc(Radius);
+            return СalculateArea(Radius);
         }
 
         /// <summary>
@@ -31,7 +26,7 @@
         /// </summary>
         public static double СalculateArea(double radius)
         {
-            return СalculateAreaFunc(radius);
+            return Math.PI * radius * radius;
         }
     }
 }
