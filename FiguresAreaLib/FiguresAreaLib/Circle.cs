@@ -24,7 +24,7 @@
         /// <summary>
         /// Вычислить площадь круга
         /// </summary>
-        public static double СalculateArea(double radius)
+        public static double CalculateArea(double radius)
         {
             _check(radius);
             return Math.PI * radius * radius;
@@ -35,10 +35,10 @@
         /// <summary>
         /// Вычислить площадь круга
         /// </summary>
-        public override double СalculateArea()
+        public override double CalculateArea()
         {
             _check(Radius);
-            return СalculateArea(Radius);
+            return CalculateArea(Radius);
         }
     }
 }

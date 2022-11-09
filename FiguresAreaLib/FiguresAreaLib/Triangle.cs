@@ -28,17 +28,17 @@
         /// <summary>
         /// Вычислить площадь треугольника
         /// </summary>
-        public static double СalculateArea(double sideA, double sideB, double sideC)
+        public static double CalculateArea(double sideA, double sideB, double sideC)
         {
             _check(sideA, sideB, sideC);
-            var halfPerimeter = СalculatePerimeter(sideA, sideB, sideC) / 2;
+            var halfPerimeter = CalculatePerimeter(sideA, sideB, sideC) / 2;
             return Math.Sqrt(halfPerimeter * (halfPerimeter - sideA) * (halfPerimeter - sideB) * (halfPerimeter - sideC));
         }
 
         /// <summary>
         /// Вычислить периметр треугольника
         /// </summary>
-        public static double СalculatePerimeter(double sideA, double sideB, double sideC)
+        public static double CalculatePerimeter(double sideA, double sideB, double sideC)
         {
             _check(sideA, sideB, sideC);
             return sideA + sideB + sideC;
@@ -60,10 +60,10 @@
         /// <summary>
         /// Вычислить площадь треугольника
         /// </summary>
-        public override double СalculateArea()
+        public override double CalculateArea()
         {
             _check(SideA, SideB, SideC);
-            return СalculateArea(SideA, SideB, SideC);
+            return CalculateArea(SideA, SideB, SideC);
         }
 
         /// <summary>

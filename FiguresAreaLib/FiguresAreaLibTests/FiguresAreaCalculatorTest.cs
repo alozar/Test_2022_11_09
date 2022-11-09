@@ -13,7 +13,7 @@ namespace FiguresAreaLibTests
         public void CircleCalcArea_True()
         {
             var circle = new Circle(20);
-            var trueArea = Circle.ÑalculateArea(20);
+            var trueArea = Circle.CalculateArea(20);
             var calcArea = _calculator.Calc(circle);
 
             Assert.Equal(trueArea, calcArea);
@@ -23,7 +23,7 @@ namespace FiguresAreaLibTests
         public void TriangleCalcArea_True()
         {
             var triangle1 = new Triangle(8, 9, 10);
-            var trueArea1 = Triangle.ÑalculateArea(8, 9, 10);
+            var trueArea1 = Triangle.CalculateArea(8, 9, 10);
             var calcArea1 = _calculator.Calc(triangle1);
 
             Assert.Equal(trueArea1, calcArea1);

@@ -2,6 +2,6 @@
 {
     public abstract class Figure
     {
-        public abstract double СalculateArea();
+        public abstract double CalculateArea();
     }
 }
